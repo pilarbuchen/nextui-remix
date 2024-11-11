@@ -5,6 +5,16 @@ import commonStyles from '~/styles/common-styles.module.scss';
 import { getUrlOriginWithPath } from '~/utils';
 import TypescriptSvg from '../../../src/assets/svg/typescript.svg';
 import ViteSvg from '../../../src/assets/svg/vite.svg';
+import React from 'react';
+import {
+    Button,
+    Card,
+    CardHeader,
+    CardFooter,
+    Image,
+    NextUIProvider,
+    CardBody,
+} from '@nextui-org/react';
 
 export const loader = ({ request }: LoaderFunctionArgs) => {
     return { canonicalUrl: getUrlOriginWithPath(request.url) };
@@ -12,7 +22,26 @@ export const loader = ({ request }: LoaderFunctionArgs) => {
 
 export default function HomePage() {
     return (
+        <div>
+          <div>
+            <Card className="py-4">
+                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                    <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                    <small className="text-default-500">12 Tracks</small>
+                    <h4 className="font-bold text-large">Frontend Radio</h4>
+                </CardHeader>
+                <CardBody className="overflow-visible py-2">
+                    <Image
+                        alt="Card background"
+                        className="object-cover rounded-xl"
+                        src="https://nextui.org/images/hero-card-complete.jpeg"
+                        width={270}
+                    />
+                </CardBody>
+            </Card>
+        </div>
         <div className={styles.root}>
+
             <h2 className={styles.title}>Welcome to your App Homepage 🎉</h2>
             <span>
                 Double click to edit App component
@@ -24,6 +53,7 @@ export default function HomePage() {
                 <img src={TypescriptSvg} width="12" />
                 Visit vitejs.dev to learn more.{' '}
             </p>
+        </div>
         </div>
     );
 }
